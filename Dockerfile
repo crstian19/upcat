@@ -6,7 +6,9 @@ COPY requirements.txt .
 
 RUN pip install -r requirements.txt
 
-COPY /app /app/
+COPY /app/ /app/app/
+
+RUN mkdir config && chown unit:unit config
 
 COPY ./unit.json /docker-entrypoint.d/unit.json
 
